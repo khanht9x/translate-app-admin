@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Thông báo</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Bạn đã đăng kí thành công ! Vui lòng liên hệ số điện thoại <b>093.595.0000</b> để được tư vấn !
                 </div>
             </div>
         </div>
