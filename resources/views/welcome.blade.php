@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Yunxi auto
                 </div>
 
                 <div class="links">

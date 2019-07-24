@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use File;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
+    private $pathModule = __DIR__ . '/../Modules';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -52,8 +54,20 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
+        $this->registerModuleRoute();
+    }
+
+    public function registerModuleRoute()
+    {
+        $listModule = array_map('basename', File::directories($this->pathModule));
+
+        foreach ($listModule as $module) {
+            if (file_exists($this->pathModule . '/' . $module . '/routes.php')) {
+                Route::middleware('web')->group($this->pathModule . '/' . $module . '/routes.php');
+            }
+        }
     }
 
     /**
@@ -66,8 +80,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api.php'));
     }
 }
