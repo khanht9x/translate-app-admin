@@ -42,4 +42,28 @@ class TokenController extends Controller
 
         return redirect()->route('admin.token');
     }
+
+    public function verify()
+    {
+
+        $request = request()->only(['token', 'user_id']);
+        $token = Token::where(['value' => $request['token'], 'status' => 0])->first();
+        if($token){
+            $token->status = 1;
+            $token->user_id = $request['user_id'];
+            $token->information = $request['infomartion'];
+            $token->save();
+
+            return response()->json([
+                'status' => 'success',
+                'data' => $token
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Token đã được sử dụng hoặc không chính xác'
+        ]);
+
+    }
 }
