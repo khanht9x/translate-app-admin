@@ -12,6 +12,12 @@
             <div class="col-md-5 align-self-center">
                 <h4 class="text-themecolor">Khách hàng</h4>
             </div>
+            <div class="col-md-7 align-self-center text-right">
+                <div class="d-flex justify-content-end align-items-center">
+                    <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i
+                            class="ti-plus"></i> Thêm mới</button>
+                </div>
+            </div>
 
         </div>
         <div class="row">
@@ -31,13 +37,13 @@
                                 </thead>
                                 <tbody>
                                     @foreach($users as $key => $user)
-                                        <tr>
-                                            <td>{{ $key + 1}}</td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->phone }}</td>
-                                            <td>{{ $user->created_at }}</td>
-                                        </tr>
+                                    <tr>
+                                        <td>{{ $key + 1}}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->phone }}</td>
+                                        <td>{{ $user->created_at }}</td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>

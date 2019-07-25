@@ -6,7 +6,7 @@
 <meta name="author" content="">
 <!-- Favicon icon -->
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-<title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+<title>Admin template</title>
 <!-- This page CSS -->
 <!-- chartist CSS -->
 <link href="{{asset('admin/node_modules/morrisjs/morris.css')}}" rel="stylesheet">

@@ -4,6 +4,9 @@ namespace App\Modules\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Token\Models\Token;
+use App\Modules\Helper\KeygenHelper;
+
+
 class TokenController extends Controller
 {
     /**
@@ -23,9 +26,20 @@ class TokenController extends Controller
      */
     public function index()
     {
-        $tokens = Token::with(['user'])->paginate(24);
+        $tokens = Token::with(['created_by_user', 'user'])->paginate(24);
         return view('Admin::token.token', [
             'tokens' => $tokens
         ]);
+    }
+
+    public function create()
+    {
+        $token = KeygenHelper::generateCode();
+        $token = Token::create([
+            'value' => $token,
+            'created_by' => 1
+        ]);
+
+        return redirect()->route('admin.token');
     }
 }
