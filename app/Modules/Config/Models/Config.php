@@ -3,7 +3,7 @@
 namespace App\Modules\Config\Models;
 
 use Illuminate\Notifications\Notifiable;
-use App\Modules\User\Models\User;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 class Config extends Authenticatable
 {
     use Notifiable;

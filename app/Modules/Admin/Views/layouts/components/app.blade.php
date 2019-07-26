@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('Admin::layouts.components.head')
+    @yield('custom-head')
 </head>
 
 <body class="skin-default fixed-layout">
@@ -19,5 +20,6 @@
         @include('Admin::layouts.components.footer')
     </div>
     @include('Admin::layouts.components.script')
+    @yield('custom-script')
 </body>
 </html>

@@ -13,6 +13,8 @@ Route::namespace($module_namespace)->group(function () {
         Route::post('admin/token/create', "TokenController@create")->name('admin.token.create');
 
         // Config
-        Route::get('admin/config', "ConfigController@index")->name('admin.config');
+        Route::get('admin/config/upload', "ConfigController@show")->name('admin.config.upload');
+        Route::get('admin/config', "ConfigController@upload")->name('admin.config.show');
+        Route::post('admin/config/edit', "ConfigController@edit")->name('admin.config.edit');
     });
 });

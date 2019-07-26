@@ -28,11 +28,19 @@
                     </a>
                 </li>
                 <li>
-                    <a class="waves-effect waves-dark {{ request()->route()->getName() == 'admin.config' ? 'active' : "" }}"
-                        href="{{ route('admin.config') }}" aria-expanded="false">
+                    <a class="has-arrow waves-effect waves-dark" href="#"
+                        {{ request()->is('admin/config') ? 'active' : "" }}" aria-expanded="false">
                         <i class="ti-key"></i>
                         <span class="hide-menu">Config</span>
                     </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li>
+                            <a href="{{ route('admin.config.show') }}">Danh sách </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.config.upload') }}">Upload </a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
             </ul>
