@@ -14,8 +14,8 @@
             </div>
             <div class="col-md-7 align-self-center text-right">
                 <div class="d-flex justify-content-end align-items-center">
-                    <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i
-                            class="ti-plus"></i> Thêm mới</button>
+                    <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="ti-plus"></i> Thêm
+                        mới</button>
                 </div>
             </div>
 
@@ -38,7 +38,7 @@
                                 <tbody>
                                     @foreach($users as $key => $user)
                                     <tr>
-                                        <td>{{ $key + 1}}</td>
+                                        <td>{{ ($users->currentPage() - 1) * $users->perPage() + $key + 1}}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone }}</td>

@@ -22,10 +22,6 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('Admin::home');
-    }
 
     public function dashboard()
     {

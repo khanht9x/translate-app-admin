@@ -3,8 +3,10 @@
 namespace App\Modules\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Modules\User\Models\User;
-class UserController extends Controller
+use App\Modules\Config\Models\Config;
+
+
+class ConfigController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,9 +25,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(20);
-        return view('Admin::user.user', [
-            'users' => $users
+        $configs = Config::where(['name' => 'search-data'])->first();
+        return view('Admin::config.config', [
+            'configs' => $configs
         ]);
     }
+
+    public function edit()
+    { }
 }
