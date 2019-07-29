@@ -56,17 +56,24 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
-        $this->registerModuleRoute();
+        $this->registerModuleRoute('web');
     }
 
-    public function registerModuleRoute()
+    public function registerModuleRoute($type = 'web')
     {
         $listModule = array_map('basename', File::directories($this->pathModule));
 
         foreach ($listModule as $module) {
-            if (file_exists($this->pathModule . '/' . $module . '/routes.php')) {
-                Route::middleware('web')->group($this->pathModule . '/' . $module . '/routes.php');
+            if($type == 'web'){
+                if (file_exists($this->pathModule . '/' . $module . '/routes.php')) {
+                    Route::middleware('web')->group($this->pathModule . '/' . $module . '/routes.php');
+                }
+            }else{
+                if (file_exists($this->pathModule . '/' . $module . '/api.php')) {
+                    Route::middleware('api')->group($this->pathModule . '/' . $module . '/api.php');
+                }
             }
+
         }
     }
 
@@ -83,5 +90,7 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
+        $this->registerModuleRoute('api');
+
     }
 }
