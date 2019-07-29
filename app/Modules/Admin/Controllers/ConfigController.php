@@ -26,15 +26,16 @@ class ConfigController extends Controller
      */
     public function show()
     {
-        $configs = Config::where(['name' => 'search-data'])->first();
-        return view('Admin::config.config', [
+        $configs = Config::where(['name' => 'data-search'])->first();
+        $configs = json_decode($configs->value);
+        return view('Admin::config.detail', [
             'configs' => $configs
         ]);
     }
 
     public function upload()
     {
-        return view('admin.config.upload');
+        return view('Admin::config.upload');
     }
 
     public function edit()
@@ -44,15 +45,20 @@ class ConfigController extends Controller
             $reader->each(function ($row) use (&$results) {
                 if (!empty($row->tieng_trung) && !empty($row->tieng_viet)) {
                     $results[] = array(
-                        $row->tieng_trung => $row->tieng_viet
+                        'key' => $row->tieng_trung,
+                        'value' => $row->tieng_viet
                     );
                 }
             });
         });
 
-        Config::create([
+        Config::updateOrInsert([
+            'name' => 'data-search',
+        ], [
             'name' => 'data-search',
             'value' => json_encode($results)
         ]);
+
+        return redirect()->route('admin.config.detail');
     }
 }

@@ -56,7 +56,14 @@
 <script>
     $(document).ready(function() {
         // Basic
-        $('.dropify').dropify();
+        $('.dropify').dropify({
+    messages: {
+        'default': 'Kéo và thả file tại đây',
+        'replace': 'Kéo và thả hoặc click để thay thế',
+        'remove':  'Xóa',
+        'error':   'Có lỗi xảy ra !'
+    }
+});
 
         // Translated
         $('.dropify-fr').dropify({

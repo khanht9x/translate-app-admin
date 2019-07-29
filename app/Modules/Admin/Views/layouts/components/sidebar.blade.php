@@ -5,7 +5,7 @@
         <div class="user-profile">
             <div class="user-pro-body">
                 <div>
-                    <img src="images/users/2.jpg" alt="user-img" class="img-circle">
+                    <img src="{{asset('admin/images/users/2.jpg')}}" alt="user-img" class="img-circle">
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         <li>
-                            <a href="{{ route('admin.config.show') }}">Danh sách </a>
+                            <a href="{{ route('admin.config.detail') }}">Danh sách </a>
                         </li>
                         <li>
                             <a href="{{ route('admin.config.upload') }}">Upload </a>
