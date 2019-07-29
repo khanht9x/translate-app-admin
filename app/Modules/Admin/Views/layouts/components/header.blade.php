@@ -46,7 +46,7 @@
                 <!-- ============================================================== -->
                 <!-- Comment -->
                 <!-- ============================================================== -->
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="ti-email"></i>
                         <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                     </a>
@@ -88,14 +88,14 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
                 <!-- ============================================================== -->
                 <!-- End Comment -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
                 <!-- Messages -->
                 <!-- ============================================================== -->
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="icon-note"></i>
                         <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                     </a>
@@ -137,14 +137,14 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
                 <!-- ============================================================== -->
                 <!-- End Messages -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
                 <!-- mega menu -->
                 <!-- ============================================================== -->
-                <li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-layout-width-default"></i></a>
+                {{-- <li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-layout-width-default"></i></a>
                     <div class="dropdown-menu animated bounceInDown">
                         <ul class="mega-dropdown-menu row">
                             <li class="col-lg-3 col-xlg-2 m-b-30">
@@ -243,7 +243,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
                 <!-- ============================================================== -->
                 <!-- End mega menu -->
                 <!-- ============================================================== -->

@@ -10,6 +10,7 @@
 <!-- This page CSS -->
 <!-- chartist CSS -->
 <link href="{{asset('admin/node_modules/morrisjs/morris.css')}}" rel="stylesheet">
+
 <!--Toaster Popup message CSS -->
 <link href="{{asset('admin/node_modules/toast-master/css/jquery.toast.css')}}" rel="stylesheet">
 <!-- Custom CSS -->
