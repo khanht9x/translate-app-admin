@@ -25,6 +25,17 @@ class UserController extends Controller
 
     public function login()
     {
-        dd(request()->all());
+        $request = request()->only(['email', 'password']);
+        if(auth()->attempt($request)){
+            return response()->json([
+                'status' => 'success',
+                'data' => auth()->user()
+            ]);
+        }else{
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Tài khoản hoặc mật khẩu không đúng'
+            ]);
+        }
     }
 }
