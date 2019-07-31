@@ -26,15 +26,15 @@ class UserController extends Controller
     public function login()
     {
         $request = request()->only(['email', 'password']);
-        if(auth()->attempt($request)){
+        if (auth()->attempt($request)) {
             return response()->json([
                 'status' => 'success',
-                'data' => auth()->user()
+                'data' => auth()->user(),
             ]);
-        }else{
+        } else {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Tài khoản hoặc mật khẩu không đúng'
+                'message' => 'Tài khoản hoặc mật khẩu không đúng',
             ]);
         }
     }
