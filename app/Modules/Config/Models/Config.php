@@ -3,8 +3,8 @@
 namespace App\Modules\Config\Models;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-class Config extends Authenticatable
+
+class Config extends Model
 {
     use Notifiable;
 
@@ -14,6 +14,6 @@ class Config extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'value'
+        'name', 'value',
     ];
 }

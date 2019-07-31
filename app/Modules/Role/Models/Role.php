@@ -3,8 +3,8 @@
 namespace App\Modules\Role\Models;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-class Role extends Authenticatable
+
+class Role extends Model
 {
     use Notifiable;
 
@@ -14,7 +14,7 @@ class Role extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
     ];
 
     public function users()

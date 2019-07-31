@@ -3,6 +3,7 @@
 namespace App\Modules\User\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Token\Models\Token;
 use Illuminate\Http\Request;
 
 class TokenController extends Controller
@@ -25,6 +26,10 @@ class TokenController extends Controller
 
     public function verify()
     {
+        $token = request()->only(['token']);
+        $token = Token::where(['value' => $token, 'user_id' => 0])->first();
+        if($token){
 
+        }
     }
 }
