@@ -15,7 +15,7 @@ class isAdmin
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()->hasRole('admin')) {
+        if ($request->user()->group == 1) {
             return $next($request);
         }
 
