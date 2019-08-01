@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\User\Controllers;
+namespace App\Modules\Token\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Token\Models\Token;
@@ -14,7 +14,6 @@ class TokenController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
     }
 
     /**
@@ -26,12 +25,12 @@ class TokenController extends Controller
     public function verify()
     {
         $request = request()->only(['token', 'user_id', 'infor']);
-        $token = Token::where(['value' => $request['token'], 'status' => 0])->first();
+        $token = Token::where(['value' => $request['token']])->first();
         if ($token) {
-            if ($token->user_id) {
+            if ($token->user_id && $request['infor'] !== $token['infor']) {
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'Token đã được sử dụng'
+                    'message' => 'Token đã được sử dụng',
                 ]);
             } else {
                 $token->status = 1;
@@ -41,14 +40,14 @@ class TokenController extends Controller
 
                 return response()->json([
                     'status' => 'success',
-                    'data' => $token
+                    'data' => $token,
                 ]);
             }
         }
 
         return response()->json([
             'status' => 'error',
-            'message' => 'Token không chính xác'
+            'message' => 'Token không chính xác',
         ]);
     }
 }
