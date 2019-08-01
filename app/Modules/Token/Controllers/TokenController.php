@@ -4,7 +4,6 @@ namespace App\Modules\User\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Token\Models\Token;
-use Illuminate\Http\Request;
 
 class TokenController extends Controller
 {
@@ -26,10 +25,30 @@ class TokenController extends Controller
 
     public function verify()
     {
-        $token = request()->only(['token']);
-        $token = Token::where(['value' => $token, 'user_id' => 0])->first();
-        if($token){
+        $request = request()->only(['token', 'user_id', 'infor']);
+        $token = Token::where(['value' => $request['token'], 'status' => 0])->first();
+        if ($token) {
+            if ($token->user_id) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Token đã được sử dụng'
+                ]);
+            } else {
+                $token->status = 1;
+                $token->user_id = $request['user_id'];
+                $token->infor = $request['infor'];
+                $token->save();
 
+                return response()->json([
+                    'status' => 'success',
+                    'data' => $token
+                ]);
+            }
         }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Token không chính xác'
+        ]);
     }
 }

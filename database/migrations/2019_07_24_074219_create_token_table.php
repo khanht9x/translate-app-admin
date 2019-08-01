@@ -17,7 +17,7 @@ class CreateTokenTable extends Migration
             $table->bigIncrements('id');
             $table->text('value');
             $table->integer('user_id')->default(0);
-            $table->text('infomation')->nullable();
+            $table->text('infor')->nullable();
             $table->integer('created_by');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();

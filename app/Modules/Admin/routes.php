@@ -11,7 +11,7 @@ Route::namespace($module_namespace)->group(function () {
         // Token
         Route::get('admin/token', "TokenController@index")->name('admin.token');
         Route::post('admin/token/create', "TokenController@create")->name('admin.token.create');
-
+        Route::post('admin/token/verify', "TokenController@verify")->name('admin.token.verify');
         // Config
         Route::get('admin/config', "ConfigController@show")->name('admin.config.detail');
         Route::get('admin/config/upload', "ConfigController@upload")->name('admin.config.upload');
