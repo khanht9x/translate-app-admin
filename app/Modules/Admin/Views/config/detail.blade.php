@@ -22,6 +22,9 @@
                         <div class="row">
                             @endif
                             @endforeach
+                            @if(!$configs)
+                            <p class="text-center">Không có dữ liệu</p>
+                            @endif
                         </div>
                     </div>
                 </div>

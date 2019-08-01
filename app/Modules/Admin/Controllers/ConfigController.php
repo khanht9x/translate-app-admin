@@ -27,7 +27,12 @@ class ConfigController extends Controller
     public function show()
     {
         $configs = Config::where(['name' => 'data-search'])->first();
-        $configs = json_decode($configs->value);
+        if($configs){
+            $configs = json_decode($configs->value);
+        }else{
+            $configs = [];
+        }
+
         return view('Admin::config.detail', [
             'configs' => $configs
         ]);
