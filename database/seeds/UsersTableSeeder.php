@@ -29,9 +29,11 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'phone' => '09xxxxxx',
             'password' => bcrypt(123456),
+            'group' => 1,
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
         $user->roles()->attach($roleCustomer->id, [
             'created_at' => now(),
             'updated_at' => now()
@@ -40,7 +42,6 @@ class UsersTableSeeder extends Seeder
 
     public function createUserCustomer()
     {
-        $roleCustomer = Role::where(['name' => 'customer'])->first();
         for ($i = 0; $i < 50; $i++) {
             $data = [
                 'name' => Str::random(10),
@@ -52,10 +53,6 @@ class UsersTableSeeder extends Seeder
             ];
 
             $user = User::create($data);
-            $user->roles()->attach($roleCustomer->id, [
-                'created_at' => now(),
-                'updated_at' => now()
-            ]);
         }
     }
 }

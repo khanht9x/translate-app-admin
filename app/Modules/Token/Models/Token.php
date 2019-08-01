@@ -3,12 +3,10 @@
 namespace App\Modules\Token\Models;
 
 use App\Modules\User\Models\User;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
 class Token extends Model
 {
-    use Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *

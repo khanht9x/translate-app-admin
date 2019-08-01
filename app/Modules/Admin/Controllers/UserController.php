@@ -4,6 +4,7 @@ namespace App\Modules\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\User\Models\User;
+
 class UserController extends Controller
 {
     /**
@@ -23,7 +24,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(20);
+        $users = User::where('group', 0)->paginate(20);
         return view('Admin::user.user', [
             'users' => $users
         ]);
