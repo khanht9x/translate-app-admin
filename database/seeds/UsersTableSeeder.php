@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         User::truncate();
         DB::table('role_user')->truncate();
         $this->createUserAdmin();
-        $this->createUserCustomer();
+        // $this->createUserCustomer();
         // Customer
     }
 
