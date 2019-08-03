@@ -26,7 +26,7 @@ class TokenController extends Controller
      */
     public function index()
     {
-        $tokens = Token::with(['created_by_user', 'user'])->paginate(24);
+        $tokens = Token::orderBy('status', 'ASC')->with(['created_by_user', 'user'])->paginate(24);
         return view('Admin::token.token', [
             'tokens' => $tokens
         ]);
