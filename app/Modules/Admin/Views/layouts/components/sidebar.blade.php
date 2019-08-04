@@ -49,7 +49,7 @@
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="#"
                         {{ request()->is('admin/config') ? 'active' : "" }}" aria-expanded="false">
-                        <i class="ti-key"></i>
+                        <i class="ti-settings"></i>
                         <span class="hide-menu">Config</span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
