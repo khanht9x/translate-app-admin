@@ -59,6 +59,11 @@ class TokenController extends Controller
                     'status' => 'error',
                     'message' => 'Token đã được sử dụng',
                 ]);
+            }else{
+                return response()->json([
+                    'status' => 'success',
+                    'data' => []
+                ]);
             }
         }
 
