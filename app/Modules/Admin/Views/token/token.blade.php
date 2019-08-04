@@ -49,7 +49,7 @@
                                         <td>{{ $token->value }}</td>
                                         <td>{{ $token->created_by_user->name }}</td>
                                         <td>{{ $token->user ? $token->user->name : "" }}</td>
-                                        <td>{{ $token->information }}</td>
+                                        <td>{{ $token->infor }}</td>
                                         <td>
                                             @if($token->status)
                                                 <span class="badge badge-pill badge-success">{{ $token->status_text}}</span>

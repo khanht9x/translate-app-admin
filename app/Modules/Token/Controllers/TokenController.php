@@ -27,7 +27,7 @@ class TokenController extends Controller
         $request = request()->only(['token', 'user_id', 'infor']);
         $token = Token::where(['value' => $request['token']])->first();
         if ($token) {
-            if ($token->user_id && $request['infor'] !== $token['infor']) {
+            if ($token->user_id && $token->status && $request['infor'] !== $token['infor']) {
                 return response()->json([
                     'status' => 'error',
                     'message' => 'Token đã được sử dụng',
