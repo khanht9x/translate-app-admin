@@ -49,4 +49,22 @@ class TokenController extends Controller
             'message' => 'Token không chính xác',
         ]);
     }
+
+    public function verifyDisk(){
+        $request = request()->only(['token', 'user_id', 'infor']);
+        $token = Token::where(['value' => $request['token'], 'user_id' => $request['user_id']])->first();
+        if($token){
+            if($token->infor !== $request['infor']){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Token đã được sử dụng',
+                ]);
+            }
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Token không chính xác',
+        ]);
+    }
 }
